@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Alamofire
 class HomeVC: UIViewController {
     private let sectionsTitles = ["Trending Movies", "Popular", "Trending TV", "Upcoming Movies", "Top rated"]
     
@@ -29,6 +29,20 @@ class HomeVC: UIViewController {
         configureLeftNavBar()
         configureRightNavBar()
         setNavBarTintColor()
+        APICaller.shared().getTrendingMovies { (error, moviesResponse) in
+            if let error = error {
+                print(error.localizedDescription)
+            } else if let  response = moviesResponse {
+                guard let movies = response.results else { return }
+                for movie in movies {
+                    if let movie = movie.originalTitle {
+                print(movie)
+                }
+                }
+            }
+        }
+        navigationController?.hidesBarsOnSwipe = true
+
     }
     
     override func viewDidLayoutSubviews() {
@@ -89,10 +103,12 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
 //    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
 //        return 80
 //    }
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let defaultOffset = view.safeAreaInsets.top
-        let offset = scrollView.contentOffset.y + defaultOffset
-        
-        navigationController?.navigationBar.transform  = .init(translationX: 0, y: min(0, -offset))
-    }
+//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        let defaultOffset = view.safeAreaInsets.top
+//        print(defaultOffset)
+//        let offset = scrollView.contentOffset.y + defaultOffset
+//        print(-offset)
+//
+//        navigationController?.navigationBar.transform  = .init(translationX: 0, y: min(0, -offset))
+//    }
 }
