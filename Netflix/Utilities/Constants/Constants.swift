@@ -14,6 +14,8 @@ struct APIKeys {
 
 struct URLs {
     static let baseURL = "https://api.themoviedb.org/"
-    static let trendingMovies =  baseURL + "3/trending/all/day?api_key=" + APIKeys.apiKey
-
+    static let trending = "3/trending/all/day?api_key="
+    static let trendingMovies =  baseURL + trending + APIKeys.apiKey
+    static let popular = "3/movie/popular?api_key="
+    static let popularMovies = baseURL + popular + APIKeys.apiKey 
 }

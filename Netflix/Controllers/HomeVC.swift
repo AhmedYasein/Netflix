@@ -29,16 +29,24 @@ class HomeVC: UIViewController {
         configureLeftNavBar()
         configureRightNavBar()
         setNavBarTintColor()
-        APICaller.shared().getTrendingMovies { (error, moviesResponse) in
+//        APICaller.shared().getTrendingMovies { (error, moviesResponse) in
+//            if let error = error {
+//                print(error.localizedDescription)
+//            } else if let  response = moviesResponse {
+//                guard let movies = response.results else { return }
+//                for movie in movies {
+//                    if let movie = movie.originalTitle {
+//                print(movie)
+//                }
+//                }
+//            }
+//        }
+        APICaller.shared().getPopularMovies{( error, popularMovies)
+            in
             if let error = error {
                 print(error.localizedDescription)
-            } else if let  response = moviesResponse {
-                guard let movies = response.results else { return }
-                for movie in movies {
-                    if let movie = movie.originalTitle {
-                print(movie)
-                }
-                }
+            } else if let popularMovies = popularMovies {
+                print(popularMovies.results?[5].overview)
             }
         }
         navigationController?.hidesBarsOnSwipe = true

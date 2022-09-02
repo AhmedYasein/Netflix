@@ -51,4 +51,39 @@ class APICaller {
         }
         
     }
-}
+    
+    func getPopularMovies(completion: @escaping (_ error: Error?, _ popularMovies: popularMoviesResponse?) -> Void){
+        guard let popularMoviesURL = URL(string: URLs.popularMovies) else {
+                   return
+               }
+        
+         AF.request(popularMoviesURL, method: HTTPMethod.get, parameters: nil, encoding: URLEncoding.default, headers: nil).responseJSON { (response) in
+                   guard response.error == nil else {
+                       print(response.error)
+                       completion(response.error, nil)
+                       return
+                   }
+                   
+                   guard let data = response.data else {
+
+                       print("Did not get and data from API")
+                       return
+                   }
+                   
+                   do {
+                       let results = try JSONDecoder().decode(popularMoviesResponse.self, from: data)
+                       
+                      completion(nil, results)
+                       //print(results)
+                       
+                   } catch let error {
+                       
+                       print(error, "Catch")
+                      
+                   }
+                       
+               }
+               
+           }
+    }
+
