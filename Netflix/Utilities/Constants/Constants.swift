@@ -17,5 +17,12 @@ struct URLs {
     static let trending = "3/trending/all/day?api_key="
     static let trendingMovies =  baseURL + trending + APIKeys.apiKey
     static let popular = "3/movie/popular?api_key="
-    static let popularMovies = baseURL + popular + APIKeys.apiKey 
+    static let popularMovies = baseURL + popular + APIKeys.apiKey
+    static let upComing = "3/movie/upcoming?api_key="
+    static let upComingMovies = baseURL + upComing + APIKeys.apiKey
+    static let tv = "3/trending/tv/day?api_key="
+    static let trndingTV = baseURL + tv + APIKeys.apiKey
+    static let topRated = "3/movie/top_rated?api_key="
+    static let topRatedMovies = baseURL + topRated + APIKeys.apiKey
+    static let discoverMovies = baseURL + "3/discover/movie?api_key= " + APIKeys.apiKey + "&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate"
 }

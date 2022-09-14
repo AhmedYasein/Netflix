@@ -7,5 +7,6 @@ target 'Netflix' do
 
   # Pods for Netflix
 pod 'Alamofire'
+pod 'SDWebImage'
 
 end
