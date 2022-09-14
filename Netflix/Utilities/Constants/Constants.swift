@@ -24,5 +24,9 @@ struct URLs {
     static let trndingTV = baseURL + tv + APIKeys.apiKey
     static let topRated = "3/movie/top_rated?api_key="
     static let topRatedMovies = baseURL + topRated + APIKeys.apiKey
-    static let discoverMovies = baseURL + "3/discover/movie?api_key= " + APIKeys.apiKey + "&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate"
+    static let discover = "&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate"
+    static let discoverMovies = baseURL + "3/discover/movie?api_key=" + APIKeys.apiKey + discover
+    static let searchQuary = baseURL + "3/search/movie?api_key=\(APIKeys.apiKey)&query="
+
 }
+

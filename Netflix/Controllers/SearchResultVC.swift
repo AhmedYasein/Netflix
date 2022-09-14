@@ -10,7 +10,9 @@ import UIKit
 
 class SearchResultVC: UIViewController{
     
-private let searchResultCollecionView: UICollectionView = {
+    public var movies: [Title] = [Title]()
+    
+public let searchResultCollecionView: UICollectionView = {
     let layout = UICollectionViewFlowLayout()
     layout.itemSize = CGSize(width: UIScreen.main.bounds.width / 3 - 10, height: 200 )
     let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -35,7 +37,7 @@ private let searchResultCollecionView: UICollectionView = {
 
 extension SearchResultVC: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return movies.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -43,7 +45,7 @@ extension SearchResultVC: UICollectionViewDelegate, UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
-        cell.backgroundColor = .blue
+        cell.configureCell(poster: movies[indexPath.row].posterPath  ?? "")
         return cell
     }
     

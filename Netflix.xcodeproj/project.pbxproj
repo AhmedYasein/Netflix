@@ -26,8 +26,8 @@
 		735C013228C2A269004459C4 /* PopularMovies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735C013128C2A269004459C4 /* PopularMovies.swift */; };
 		735C013428C2B5F6004459C4 /* UpcomingMovies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735C013328C2B5F6004459C4 /* UpcomingMovies.swift */; };
 		738D51E528B1BDDC00656261 /* TrendingMovies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738D51E428B1BDDC00656261 /* TrendingMovies.swift */; };
-		73B1AF1C28D11392007A289C /* SearchVcView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B1AF1B28D11392007A289C /* SearchVcView.swift */; };
 		73B1AF1E28D14E56007A289C /* SearchResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B1AF1D28D14E56007A289C /* SearchResultVC.swift */; };
+		73B1AF2028D213F4007A289C /* String+Trimming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B1AF1F28D213F4007A289C /* String+Trimming.swift */; };
 		73E9A2AB28B1B6E200979577 /* APIClaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E9A2AA28B1B6E200979577 /* APIClaller.swift */; };
 		73E9A2B028B1B88800979577 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73E9A2AF28B1B88800979577 /* Constants.swift */; };
 		73F7B20C28C3A9FF00E83741 /* TrendingTV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F7B20B28C3A9FF00E83741 /* TrendingTV.swift */; };
@@ -60,8 +60,8 @@
 		735C013128C2A269004459C4 /* PopularMovies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularMovies.swift; sourceTree = "<group>"; };
 		735C013328C2B5F6004459C4 /* UpcomingMovies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingMovies.swift; sourceTree = "<group>"; };
 		738D51E428B1BDDC00656261 /* TrendingMovies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingMovies.swift; sourceTree = "<group>"; };
-		73B1AF1B28D11392007A289C /* SearchVcView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVcView.swift; sourceTree = "<group>"; };
 		73B1AF1D28D14E56007A289C /* SearchResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultVC.swift; sourceTree = "<group>"; };
+		73B1AF1F28D213F4007A289C /* String+Trimming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Trimming.swift"; sourceTree = "<group>"; };
 		73E9A2AA28B1B6E200979577 /* APIClaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClaller.swift; sourceTree = "<group>"; };
 		73E9A2AF28B1B88800979577 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		73F7B20B28C3A9FF00E83741 /* TrendingTV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingTV.swift; sourceTree = "<group>"; };
@@ -94,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				7306E7A828C3C80B00B7D3F8 /* sd_webImage.swift */,
+				73B1AF1F28D213F4007A289C /* String+Trimming.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -143,7 +144,6 @@
 			children = (
 				732B273B28B0766800A6876C /* SearchVC.swift */,
 				732B273D28B0767A00A6876C /* DownloadsVC.swift */,
-				73B1AF1B28D11392007A289C /* SearchVcView.swift */,
 				73B1AF1D28D14E56007A289C /* SearchResultVC.swift */,
 			);
 			path = Controllers;
@@ -451,8 +451,8 @@
 				73E9A2B028B1B88800979577 /* Constants.swift in Sources */,
 				73F7B20E28C3B19400E83741 /* TopRatedMovies.swift in Sources */,
 				732B272728B075E400A6876C /* MainTabBarVC.swift in Sources */,
+				73B1AF2028D213F4007A289C /* String+Trimming.swift in Sources */,
 				735C013228C2A269004459C4 /* PopularMovies.swift in Sources */,
-				73B1AF1C28D11392007A289C /* SearchVcView.swift in Sources */,
 				7335708428CE5B43000C02D5 /* UpcomingTableViewCell.swift in Sources */,
 				732B274628B08E7400A6876C /* CollectionViewTableViewCell.swift in Sources */,
 				7335708628CE60AD000C02D5 /* UpcomingPresenter.swift in Sources */,

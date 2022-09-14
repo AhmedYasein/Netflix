@@ -192,7 +192,7 @@ class APICaller {
     }
     
     func getDiscoverMovies(completion: @escaping (_ error: Error?, _ upcomingMoovies: titledMoviesResponse?) -> Void){
-        guard let discoverMoviesURL = URL(string: "https://api.themoviedb.org/3/discover/movie?api_key=2ad733eda0f17027b021ed10c523d9a5&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate") else {
+        guard let discoverMoviesURL = URL(string: URLs.discoverMovies) else {
             return
         }
         
@@ -225,12 +225,12 @@ class APICaller {
         
     }
     
-    func search(completion: @escaping (_ error: Error?, _ upcomingMoovies: titledMoviesResponse?) -> Void){
-        guard let discoverMoviesURL = URL(string: URLs.discoverMovies) else {
+    func search(quary: String, completion: @escaping (_ error: Error?, _ upcomingMoovies: titledMoviesResponse?) -> Void){
+        guard let searchURL = URL(string: URLs.searchQuary + quary) else {
             return
         }
         
-        AF.request(discoverMoviesURL, method: HTTPMethod.get, parameters: nil, encoding: URLEncoding.default, headers: nil).responseJSON { (response) in
+        AF.request(searchURL, method: HTTPMethod.get, parameters: nil, encoding: URLEncoding.default, headers: nil).responseJSON { (response) in
             guard response.error == nil else {
                 print(response.error)
                 completion(response.error, nil)

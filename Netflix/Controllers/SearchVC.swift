@@ -31,7 +31,7 @@ class SearchVC: UIViewController {
               discoverTableView.delegate = self
               discoverTableView.dataSource = self
         view.addSubview(discoverTableView)
-
+        searchController.searchResultsUpdater = self
         fetchDiscoverMovies()
         
     }
@@ -85,5 +85,31 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         140
     }
+    
+}
+
+extension SearchVC: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchBar = searchController.searchBar
+         guard let quary = searchBar.text,
+        !quary.trimmed.isEmpty,
+            quary.trimmed.count >= 3,
+            let searchResultController = searchController.searchResultsController as? SearchResultVC else {
+                return
+        }
+        
+        APICaller.shared().search(quary: quary) { (error, searchResults) in
+            if let error = error {
+                print(error.localizedDescription)
+            } else if let movies = searchResults?.results {
+                searchResultController.movies = movies
+                DispatchQueue.main.async {
+                    searchResultController.searchResultCollecionView.reloadData()
+                }
+            }
+        }
+        
+    }
+    
     
 }
