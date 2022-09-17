@@ -226,12 +226,15 @@ class APICaller {
     }
     
     func search(quary: String, completion: @escaping (_ error: Error?, _ upcomingMoovies: titledMoviesResponse?) -> Void){
-        guard let searchURL = URL(string: URLs.searchQuary + quary) else {
+        guard let searchURL = URL(string: URLs.searchQuary) else {
             return
         }
         
-        AF.request(searchURL, method: HTTPMethod.get, parameters: nil, encoding: URLEncoding.default, headers: nil).responseJSON { (response) in
+        let params = ["query": quary]
+        
+        AF.request(searchURL, method: HTTPMethod.get, parameters: params, encoding: URLEncoding.default, headers: nil).responseJSON { (response) in
             guard response.error == nil else {
+                
                 print(response.error)
                 completion(response.error, nil)
                 return
