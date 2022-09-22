@@ -11,6 +11,7 @@
 		7306E7AB28C3EF2D00B7D3F8 /* sharedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7306E7AA28C3EF2D00B7D3F8 /* sharedModel.swift */; };
 		7306E7AD28C40D5800B7D3F8 /* GenaricResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7306E7AC28C40D5800B7D3F8 /* GenaricResponse.swift */; };
 		730CB31F28B15FAB0056D029 /* HeroHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730CB31E28B15FAB0056D029 /* HeroHeaderView.swift */; };
+		730F98A428DD0CC2001D8A1B /* YoutubeApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730F98A328DD0CC2001D8A1B /* YoutubeApiResponse.swift */; };
 		732B272328B075E400A6876C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732B272228B075E400A6876C /* AppDelegate.swift */; };
 		732B272528B075E400A6876C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732B272428B075E400A6876C /* SceneDelegate.swift */; };
 		732B272728B075E400A6876C /* MainTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732B272628B075E400A6876C /* MainTabBarVC.swift */; };
@@ -43,6 +44,7 @@
 		7306E7AA28C3EF2D00B7D3F8 /* sharedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sharedModel.swift; sourceTree = "<group>"; };
 		7306E7AC28C40D5800B7D3F8 /* GenaricResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenaricResponse.swift; sourceTree = "<group>"; };
 		730CB31E28B15FAB0056D029 /* HeroHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroHeaderView.swift; sourceTree = "<group>"; };
+		730F98A328DD0CC2001D8A1B /* YoutubeApiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeApiResponse.swift; sourceTree = "<group>"; };
 		732B271F28B075E400A6876C /* Netflix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Netflix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		732B272228B075E400A6876C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		732B272428B075E400A6876C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -99,6 +101,22 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		730F98A128DD0C97001D8A1B /* YoutubeAPI */ = {
+			isa = PBXGroup;
+			children = (
+				730F98A228DD0CAA001D8A1B /* Model */,
+			);
+			path = YoutubeAPI;
+			sourceTree = "<group>";
+		};
+		730F98A228DD0CAA001D8A1B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				730F98A328DD0CC2001D8A1B /* YoutubeApiResponse.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		732B271628B075E400A6876C = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +138,7 @@
 		732B272128B075E400A6876C /* Netflix */ = {
 			isa = PBXGroup;
 			children = (
+				730F98A128DD0C97001D8A1B /* YoutubeAPI */,
 				7335708728CE9815000C02D5 /* Shared */,
 				7306E7A728C3C7E300B7D3F8 /* Extensions */,
 				7335707128CE35BB000C02D5 /* Home */,
@@ -459,6 +478,7 @@
 				732B273A28B0765400A6876C /* UpComingVC.swift in Sources */,
 				7306E7A928C3C80B00B7D3F8 /* sd_webImage.swift in Sources */,
 				730CB31F28B15FAB0056D029 /* HeroHeaderView.swift in Sources */,
+				730F98A428DD0CC2001D8A1B /* YoutubeApiResponse.swift in Sources */,
 				732B273828B0763C00A6876C /* HomeVC.swift in Sources */,
 				732B273E28B0767A00A6876C /* DownloadsVC.swift in Sources */,
 				7306E7AD28C40D5800B7D3F8 /* GenaricResponse.swift in Sources */,

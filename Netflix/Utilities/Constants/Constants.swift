@@ -9,7 +9,8 @@
 import Foundation
 
 struct APIKeys {
-    static let apiKey = "2ad733eda0f17027b021ed10c523d9a5222"
+    static let apiKey = "2ad733eda0f17027b021ed10c523d9a5"
+    static let youtubeApiKey = "AIzaSyARoR3VqnNFZ3vkikqGWpKJ6ydZ6NF8ZpU"
 }
 
 struct URLs {
@@ -27,6 +28,7 @@ struct URLs {
     static let discover = "&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate"
     static let discoverMovies = baseURL + "3/discover/movie?api_key=" + APIKeys.apiKey + discover
     static let searchQuary = baseURL + "3/search/movie?api_key=\(APIKeys.apiKey)&query="
+    static let youtubeSearchBase = "https://youtube.googleapis.com/youtube/v3/search?"
 
 
 }

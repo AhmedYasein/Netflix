@@ -254,7 +254,7 @@ class APICaller {
                 
             } catch let error {
                 
-                print(error, "Catch sds")
+                print(error, "Catch ")
                 
             }
             
@@ -262,7 +262,42 @@ class APICaller {
         
     }
     
-
+    func getMoviesFromYoutube(quary: String, completion: @escaping (_ error: Error?, _ movies: videoElement?) -> Void){
+        guard let searchURL = URL(string: URLs.youtubeSearchBase) else {
+            return
+        }
+        
+        let params = ["query": quary, "key": APIKeys.youtubeApiKey]
+        
+        AF.request(searchURL, method: HTTPMethod.get, parameters: params, encoding: URLEncoding.default, headers: nil).responseJSON { (response) in
+            guard response.error == nil else {
+                
+                print(response.error)
+                completion(response.error, nil)
+                return
+            }
+            
+            guard let data = response.data else {
+                
+                print("Did not get and data from API")
+                return
+            }
+            
+            do {
+                let results = try JSONDecoder().decode(YoutubeSearchResponse.self, from: data)
+                
+                completion(nil, results.items[0])
+                //print(results)
+                
+            } catch let error {
+                
+                print(error, "Catch ")
+                
+            }
+            
+        }
+        
+    }
     
 }
 
