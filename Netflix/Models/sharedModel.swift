@@ -27,6 +27,7 @@ struct Title: Codable {
     let id: Int?
     let originalLanguage: String?
     let originalTitle: String?
+    let originalName: String?
     let overview: String?
     let popularity: Double?
     let posterPath: String?
@@ -52,6 +53,6 @@ struct Title: Codable {
         case releaseDate = "release_date"
         case votAverage = "vote_average"
         case video
-        
+        case originalName = "original_name"
     }
 }

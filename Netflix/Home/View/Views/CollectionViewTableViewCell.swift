@@ -8,9 +8,15 @@
 
 import UIKit
 
+protocol CollectionViewTableViewCellDelegate: class {
+    func didTapedCell(_ cell: CollectionViewTableViewCell, viewModel: MoviePreviewModel)
+}
+
 class CollectionViewTableViewCell: UITableViewCell {
     static let identifier = "CollectionViewTableViewCell"
-    private var titles: [String] = [String]()
+    private var titles: [Title] = [Title]()
+    
+    weak var delegate: CollectionViewTableViewCellDelegate?
     
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -41,7 +47,7 @@ class CollectionViewTableViewCell: UITableViewCell {
         collectionView.frame = contentView.bounds
         
     }
-    public func configure(titles: [String]){
+    public func configure(titles: [Title]){
         self.titles = titles
         DispatchQueue.main.async {
             [weak self] in
@@ -63,21 +69,32 @@ extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionVie
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TitleCollectionViewCell.identifier, for: indexPath) as? TitleCollectionViewCell else {
             return UICollectionViewCell()
         }
-        let poster = titles[indexPath.row] 
+        guard let poster = titles[indexPath.row].posterPath else {return UICollectionViewCell()}
         cell.configureCell(poster: poster)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
-         let title = titles[indexPath.row]
-       
+        let title = titles[indexPath.row].originalTitle ?? titles[indexPath.row].title ??  titles[indexPath.row].originalName ?? "unKnown"
+       print(title)
         
-        APICaller.shared().getMoviesFromYoutube(quary: title + " trailer") { (error, movie) in
+        APICaller.shared().getMoviesFromYoutube(quary: title + " trailer") { [weak self](error, movie) in
             if let error = error {
                 print(error.localizedDescription)
-            } else if let result = movie?.id.videoId{
-            print(result)
+            } else if let videoElement = movie {
+                let title = self?.titles[indexPath.row]
+                guard let titleOverview = title?.overview else {
+                    return
+                }
+                let model = MoviePreviewModel(title: title?.originalName ?? title?.originalTitle ?? "Unknown", youtubeVideo: videoElement , overview: titleOverview)
+                
+                guard let strongSelf = self else {
+                    return
+                }
+                
+                self?.delegate?.didTapedCell(strongSelf, viewModel: model)
+                
         }
         }
     }

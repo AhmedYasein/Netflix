@@ -6,8 +6,7 @@
 //  Copyright © 2022 Ahmed Yasein. All rights reserved.
 //
 
-import UIKit
-
+import UIKit 
 
 
 class TitleCollectionViewCell: UICollectionViewCell {

@@ -42,7 +42,7 @@ class HomeVC: UIViewController {
         setNavBarTintColor()
         navigationController?.hidesBarsOnSwipe = true
         
-        
+      //  navigationController?.pushViewController(MoviePreviewVC(), animated: true)
         
     }
     
@@ -68,6 +68,7 @@ class HomeVC: UIViewController {
     private func setNavBarTintColor(){
         navigationController?.navigationBar.tintColor = .white
     }
+ 
     
     
     
@@ -89,38 +90,43 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CollectionViewTableViewCell.identifier, for: indexPath) as? CollectionViewTableViewCell else {
             return UITableViewCell()
         }
+        
+        cell.delegate = self
         switch indexPath.section {
         case sections.trendingMovies.rawValue:
+            if Connectivity.isConnectedToInternet() {
+            
             APICaller.shared().getTrendingMovies { (error, moviesResponse)  in
                        if let error = error {
                            print(error.localizedDescription)
                        } else if let  movies = moviesResponse?.results {
-                        var postersArr = [String]()
+                        var postersArr = [Title]()
                            
                            for movie in movies {
-                               if let poster = movie.posterPath {
-                                postersArr.append(poster)
+                            
+                                postersArr.append(movie)
                                    
 
                                    
-                               }
+                               
                            }
                         cell.configure(titles: postersArr)
                        }
 
                    }
+            } else {
+                AlertManager.shared().showAlertWithCancel(alertTitle: "Ahmed", message: "sadsdasd", actionTitle: "SAdsadsad", completion: self.view.showLoading)
+            }
             
         case sections.trendingTv.rawValue:
               APICaller.shared().getTrendingTv { (error, trendingTv) in
                       if let error = error {
                           print(error.localizedDescription)
                       } else if let trendingTv = trendingTv?.results {
-                          var postersArr = [String]()
+                          var postersArr = [Title]()
                           for trendingTv in trendingTv {
-                              guard let poster = trendingTv.posterPath else {
-                                  return
-                              }
-                              postersArr.append(poster)
+                        
+                              postersArr.append(trendingTv)
                           }
                           cell.configure(titles: postersArr)
                       }
@@ -132,11 +138,11 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
                        if let error = error {
                            print(error.localizedDescription)
                        } else if let popularMovies = popularMovies?.results {
-                        var postersArr = [String]()
+                        var postersArr = [Title]()
                            for popularMovie in popularMovies {
-                               if let poster = popularMovie.posterPath {
-                                   postersArr.append(poster)
-                               }
+                               
+                                   postersArr.append(popularMovie)
+                               
                            }
                         cell.configure(titles: postersArr)
 
@@ -148,10 +154,9 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
                 if let error = error {
                     print(error.localizedDescription)
                 } else if let upcomingMovies = upcomingMovies?.results {
-                    var postersArr = [String]()
+                    var postersArr = [Title]()
                     for upcomingMovie in upcomingMovies {
-                        guard let poster = upcomingMovie.posterPath else {return}
-                        postersArr.append(poster)
+                        postersArr.append(upcomingMovie)
                     }
                     cell.configure(titles: postersArr)
 
@@ -163,12 +168,10 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
                      if let error = error {
                          print(error.localizedDescription)
                      } else if let topRatedMovies = topRatedMovies?.results {
-                         var postersArr  = [String]()
+                         var postersArr  = [Title]()
                          for topRatedMovie in topRatedMovies {
-                             guard let poster = topRatedMovie.posterPath else {
-                                 return
-                             }
-                             postersArr.append(poster)
+                             
+                             postersArr.append(topRatedMovie)
                          }
                           cell.configure(titles: postersArr)
                      }
@@ -189,4 +192,17 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200
     }
+}
+
+extension HomeVC: CollectionViewTableViewCellDelegate {
+    func didTapedCell(_ cell: CollectionViewTableViewCell, viewModel: MoviePreviewModel) {
+        DispatchQueue.main.async { [weak self]  in
+              let moviePreviewVC = MoviePreviewVC()
+                  moviePreviewVC.configure(movie: viewModel)
+            self?.navigationController?.pushViewController(moviePreviewVC, animated: true)
+        }
+      
+    }
+    
+    
 }

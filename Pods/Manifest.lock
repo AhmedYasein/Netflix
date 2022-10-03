@@ -3,20 +3,24 @@ PODS:
   - SDWebImage (5.9.1):
     - SDWebImage/Core (= 5.9.1)
   - SDWebImage/Core (5.9.1)
+  - SwiftyGif (5.4.3)
 
 DEPENDENCIES:
   - Alamofire
   - SDWebImage
+  - SwiftyGif
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - SDWebImage
+    - SwiftyGif
 
 SPEC CHECKSUMS:
   Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
   SDWebImage: a990c053fff71e388a10f3357edb0be17929c9c5
+  SwiftyGif: 6c3eafd0ce693cad58bb63d2b2fb9bacb8552780
 
-PODFILE CHECKSUM: bee40d4bc7611e27ccd13bf09b92ff7f442f74ae
+PODFILE CHECKSUM: 9aa8d5661facecf9faaf216d6835b7d703a0cb9d
 
 COCOAPODS: 1.11.3

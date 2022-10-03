@@ -9,6 +9,12 @@
 import Foundation
 import Alamofire
 
+
+class Connectivity {
+    class func isConnectedToInternet() -> Bool {
+        return NetworkReachabilityManager()?.isReachable ?? false
+    }
+}
 class APICaller {
     
     private static let sharedInstance = APICaller()
@@ -30,6 +36,8 @@ class APICaller {
                 return
             }
             
+            if Connectivity.isConnectedToInternet(){
+            
             guard let data = response.data else {
                 
                 print("Did not get and data from API")
@@ -48,6 +56,9 @@ class APICaller {
                 
             }
             
+            } else {
+                print("No Internet Connection666666666666666666666")
+            }
         }
         
     }
@@ -197,6 +208,7 @@ class APICaller {
         }
         
         AF.request(discoverMoviesURL, method: HTTPMethod.get, parameters: nil, encoding: URLEncoding.default, headers: nil).responseJSON { (response) in
+        print(discoverMoviesURL)
             guard response.error == nil else {
                 print(response.error)
                 completion(response.error, nil)
@@ -267,7 +279,7 @@ class APICaller {
             return
         }
         
-        let params = ["query": quary, "key": APIKeys.youtubeApiKey]
+        let params = ["q": quary, "key": APIKeys.youtubeApiKey]
         
         AF.request(searchURL, method: HTTPMethod.get, parameters: params, encoding: URLEncoding.default, headers: nil).responseJSON { (response) in
             guard response.error == nil else {
@@ -286,7 +298,7 @@ class APICaller {
             do {
                 let results = try JSONDecoder().decode(YoutubeSearchResponse.self, from: data)
                 
-                completion(nil, results.items[0])
+                completion(nil, results.items[1])
                 //print(results)
                 
             } catch let error {
