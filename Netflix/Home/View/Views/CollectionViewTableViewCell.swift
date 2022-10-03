@@ -15,6 +15,7 @@ protocol CollectionViewTableViewCellDelegate: class {
 class CollectionViewTableViewCell: UITableViewCell {
     static let identifier = "CollectionViewTableViewCell"
     private var titles: [Title] = [Title]()
+
     
     weak var delegate: CollectionViewTableViewCellDelegate?
     

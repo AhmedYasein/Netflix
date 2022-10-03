@@ -13,7 +13,7 @@ extension UIImageView {
     func loadImage(image: String){
         
         guard let url = URL(string: image) else {
-            print("Non valif URL")
+            print("Non valid URL")
             return
         }
     self.sd_setImage(with: url, placeholderImage: UIImage(named: "placeholder.png"))

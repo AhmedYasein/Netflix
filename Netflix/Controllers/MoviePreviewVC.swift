@@ -48,8 +48,6 @@ class MoviePreviewVC: UIViewController {
         view.addSubview(overviewLabel)
         view.addSubview(downloadButton)
         configureConstraints()
-        navigationController?.navigationBar.isHidden = true
-        //view.backgroundColor = .yellow
     }
     
     func configureConstraints(){

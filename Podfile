@@ -9,5 +9,7 @@ target 'Netflix' do
 pod 'Alamofire'
 pod 'SDWebImage'
 pod 'SwiftyGif'
+pod 'lottie-ios'
+
 
 end

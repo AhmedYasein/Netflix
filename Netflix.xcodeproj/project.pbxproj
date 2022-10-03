@@ -18,7 +18,6 @@
 		732B272528B075E400A6876C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732B272428B075E400A6876C /* SceneDelegate.swift */; };
 		732B272728B075E400A6876C /* MainTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732B272628B075E400A6876C /* MainTabBarVC.swift */; };
 		732B272C28B075E400A6876C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 732B272B28B075E400A6876C /* Assets.xcassets */; };
-		732B272F28B075E400A6876C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 732B272D28B075E400A6876C /* LaunchScreen.storyboard */; };
 		732B273828B0763C00A6876C /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732B273728B0763C00A6876C /* HomeVC.swift */; };
 		732B273A28B0765400A6876C /* UpComingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732B273928B0765400A6876C /* UpComingVC.swift */; };
 		732B273C28B0766800A6876C /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732B273B28B0766800A6876C /* SearchVC.swift */; };
@@ -26,6 +25,7 @@
 		732B274628B08E7400A6876C /* CollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732B274528B08E7400A6876C /* CollectionViewTableViewCell.swift */; };
 		7335708428CE5B43000C02D5 /* UpcomingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7335708328CE5B43000C02D5 /* UpcomingTableViewCell.swift */; };
 		7335708628CE60AD000C02D5 /* UpcomingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7335708528CE60AD000C02D5 /* UpcomingPresenter.swift */; };
+		733A83E428EB5ECE00E8F273 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 733A83E328EB5ECE00E8F273 /* LaunchScreen.storyboard */; };
 		73430BCC28E623640029B9F2 /* ShowAlertsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73430BCB28E623640029B9F2 /* ShowAlertsManager.swift */; };
 		73430BCE28E6304D0029B9F2 /* UIView + Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73430BCD28E6304D0029B9F2 /* UIView + Loader.swift */; };
 		7343D79D28EA391C0038D929 /* Netflix.gif in Resources */ = {isa = PBXBuildFile; fileRef = 7343D79C28EA391C0038D929 /* Netflix.gif */; };
@@ -58,7 +58,6 @@
 		732B272428B075E400A6876C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		732B272628B075E400A6876C /* MainTabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarVC.swift; sourceTree = "<group>"; };
 		732B272B28B075E400A6876C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		732B272E28B075E400A6876C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		732B273028B075E400A6876C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		732B273728B0763C00A6876C /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		732B273928B0765400A6876C /* UpComingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpComingVC.swift; sourceTree = "<group>"; };
@@ -67,6 +66,7 @@
 		732B274528B08E7400A6876C /* CollectionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewTableViewCell.swift; sourceTree = "<group>"; };
 		7335708328CE5B43000C02D5 /* UpcomingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingTableViewCell.swift; sourceTree = "<group>"; };
 		7335708528CE60AD000C02D5 /* UpcomingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingPresenter.swift; sourceTree = "<group>"; };
+		733A83E328EB5ECE00E8F273 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		73430BCB28E623640029B9F2 /* ShowAlertsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAlertsManager.swift; sourceTree = "<group>"; };
 		73430BCD28E6304D0029B9F2 /* UIView + Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Loader.swift"; sourceTree = "<group>"; };
 		7343D79C28EA391C0038D929 /* Netflix.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Netflix.gif; sourceTree = "<group>"; };
@@ -164,7 +164,6 @@
 				732B273F28B08D7100A6876C /* Views */,
 				732B273628B0762100A6876C /* Controllers */,
 				732B272628B075E400A6876C /* MainTabBarVC.swift */,
-				732B272D28B075E400A6876C /* LaunchScreen.storyboard */,
 				732B273028B075E400A6876C /* Info.plist */,
 				7343D79C28EA391C0038D929 /* Netflix.gif */,
 				7343D79B28EA38F70038D929 /* gif */,
@@ -181,6 +180,7 @@
 				73B1AF1D28D14E56007A289C /* SearchResultVC.swift */,
 				730F98A528DD0FBC001D8A1B /* MoviePreviewVC.swift */,
 				730F98A728DD1664001D8A1B /* MoviePreviewModel.swift */,
+				733A83E328EB5ECE00E8F273 /* LaunchScreen.storyboard */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -425,7 +425,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				732B272F28B075E400A6876C /* LaunchScreen.storyboard in Resources */,
+				733A83E428EB5ECE00E8F273 /* LaunchScreen.storyboard in Resources */,
 				7343D79D28EA391C0038D929 /* Netflix.gif in Resources */,
 				732B272C28B075E400A6876C /* Assets.xcassets in Resources */,
 			);
@@ -514,17 +514,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		732B272D28B075E400A6876C /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				732B272E28B075E400A6876C /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		732B273128B075E400A6876C /* Debug */ = {

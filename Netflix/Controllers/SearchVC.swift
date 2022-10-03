@@ -77,8 +77,7 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
-        print(titles[indexPath.row].title
-        )
+      
         cell.configure(with: titles[indexPath.row])
         return cell
     }
@@ -86,9 +85,45 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource {
         140
     }
     
-}
+        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            tableView.deselectRow(at: indexPath, animated: true)
+            
+            let movie = titles[indexPath.row]
+            
+            guard  let titleName = movie.originalName ?? movie.originalTitle else {
+                return
+            }
+            APICaller.shared().getMoviesFromYoutube(quary: titleName) {[weak self] (error, videoElement) in
+                if let error = error {
+                    print(error.localizedDescription)
+                } else if let videoElement = videoElement {
+                    DispatchQueue.main.async {
+                        let moviePreviewVC = MoviePreviewVC()
+                        moviePreviewVC.configure(movie: MoviePreviewModel(title: titleName, youtubeVideo: videoElement, overview: movie.overview ?? ""))
+                        self?.navigationController?.pushViewController(moviePreviewVC, animated: true   )
+                    }
+                    
+                }
+            }
+        }
+        
+    }
 
-extension SearchVC: UISearchResultsUpdating {
+    
+
+
+extension SearchVC: UISearchResultsUpdating, SearchResultVCDelegate {
+    func didTapItem(_ model: MoviePreviewModel) {
+
+        DispatchQueue.main.async {[weak self] in
+            let moviePreviewVC = MoviePreviewVC()
+            moviePreviewVC.configure(movie: model)
+            self?.navigationController?.pushViewController(moviePreviewVC, animated: true)
+        }
+        
+        
+    }
+    
     func updateSearchResults(for searchController: UISearchController) {
         let searchBar = searchController.searchBar
          guard let quary = searchBar.text,
@@ -97,6 +132,7 @@ extension SearchVC: UISearchResultsUpdating {
             let searchResultController = searchController.searchResultsController as? SearchResultVC else {
                 return
         }
+        searchResultController.delegate = self
         
         APICaller.shared().search(quary: quary) { (error, searchResults) in
             if let error = error {

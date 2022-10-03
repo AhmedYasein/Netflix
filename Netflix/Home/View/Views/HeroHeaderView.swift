@@ -14,7 +14,7 @@ class HeroHeaderView: UIView {
        let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-        imageView.image = UIImage(named: "Daredevil")
+        //imageView.image = UIImage(named: "Daredevil")
         return imageView
     }()
     
@@ -55,6 +55,9 @@ class HeroHeaderView: UIView {
 
     required init?(coder: NSCoder) {
         fatalError()
+    }
+    func configure(model: Title){
+        heroImageView.loadImage(image: "https://image.tmdb.org/t/p/w500/\(model.posterPath ?? "any URL")")
     }
     private func addGradient(){
           let gradientLayer = CAGradientLayer()

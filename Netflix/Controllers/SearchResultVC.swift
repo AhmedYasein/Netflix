@@ -8,24 +8,29 @@
 
 import UIKit
 
+protocol SearchResultVCDelegate: class {
+    func didTapItem(_ model: MoviePreviewModel)
+}
 class SearchResultVC: UIViewController{
     
     public var movies: [Title] = [Title]()
     
-public let searchResultCollecionView: UICollectionView = {
-    let layout = UICollectionViewFlowLayout()
-    layout.itemSize = CGSize(width: UIScreen.main.bounds.width / 3 - 10, height: 200 )
-    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-    collectionView.register(TitleCollectionViewCell.self, forCellWithReuseIdentifier: TitleCollectionViewCell.identifier)
-    return collectionView
+    public weak var delegate: SearchResultVCDelegate?
     
-}()
-
+    public let searchResultCollecionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: UIScreen.main.bounds.width / 3 - 10, height: 200 )
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.register(TitleCollectionViewCell.self, forCellWithReuseIdentifier: TitleCollectionViewCell.identifier)
+        return collectionView
+        
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(searchResultCollecionView)
- 
-}
+        
+    }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         searchResultCollecionView.frame = view.bounds
@@ -47,6 +52,27 @@ extension SearchResultVC: UICollectionViewDelegate, UICollectionViewDataSource {
         
         cell.configureCell(poster: movies[indexPath.row].posterPath  ?? "")
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        
+        let movie = movies[indexPath.row]
+        
+        guard  let titleName = movie.originalName ?? movie.originalTitle else {
+            return
+        }
+        APICaller.shared().getMoviesFromYoutube(quary: titleName) {[weak self] (error, videoElement) in
+            if let error = error {
+                print(error.localizedDescription)
+            } else if let videoElement = videoElement {
+                self?.delegate?.didTapItem(MoviePreviewModel(title: titleName, youtubeVideo: videoElement, overview: movie.overview ?? ""))
+
+                
+            }
+        }
+        
+        
     }
     
     

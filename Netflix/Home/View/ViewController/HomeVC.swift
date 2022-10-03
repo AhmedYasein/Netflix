@@ -20,6 +20,10 @@ class HomeVC: UIViewController {
         case topRated
         
     }
+    private var randomTrendingMovie: Title?
+    private var heroHeader: HeroHeaderView?
+    
+    
     private let sectionsTitles = ["Trending Movies", "Popular", "Trending TV", "Upcoming Movies", "Top rated"]
         
     private let homeFeedTable: UITableView = {
@@ -35,22 +39,30 @@ class HomeVC: UIViewController {
         view.addSubview(homeFeedTable)
         homeFeedTable.delegate = self
         homeFeedTable.dataSource = self
-        let heroHeader = HeroHeaderView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
+        heroHeader = HeroHeaderView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
         homeFeedTable.tableHeaderView = heroHeader
         configureLeftNavBar()
         configureRightNavBar()
         setNavBarTintColor()
         navigationController?.hidesBarsOnSwipe = true
-        
-      //  navigationController?.pushViewController(MoviePreviewVC(), animated: true)
-        
+                configureHeroHeaderView()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         homeFeedTable.frame = view.bounds
     }
-    
+    func configureHeroHeaderView(){
+        APICaller.shared().getPopularMovies { (error, movies) in
+            if let error = error {
+                print(error.localizedDescription)
+            } else if let movies = movies{
+                let randomMovie = movies.results?.randomElement()
+                self.randomTrendingMovie = randomMovie
+                self.heroHeader?.configure(model: randomMovie!)
+            }
+        }
+    }
 
     
     private func configureLeftNavBar(){
@@ -90,6 +102,7 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CollectionViewTableViewCell.identifier, for: indexPath) as? CollectionViewTableViewCell else {
             return UITableViewCell()
         }
+
         
         cell.delegate = self
         switch indexPath.section {
