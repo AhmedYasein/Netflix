@@ -21,7 +21,7 @@ class MainTabBarVC: UITabBarController {
         super.viewDidLoad()
         self.tabBarController?.tabBar.backgroundColor = .none
         tabBar.tintColor = .label
-       setTabBarVCs()
+        setTabBarVCs()
         SetTabBarImages()
         setTabBarItmesTitles()
         
