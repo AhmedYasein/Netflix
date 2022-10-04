@@ -1,33 +1,85 @@
 
-## 🚀 About Me
-I'm an iOS developer             
+<img src="https://github.com/AhmedYasein/Netflix/blob/main/Netflix-logo.gif" width=100 height=100 />
 
-.
-# Hi 👋, I'm Ahmed Yasein
-I’m an iOS Software Developer with Bachelor's degree in Computer Science, interested in building mobile apps, I have skills in problem solving, I always try to learn in best practice techniques.
-## Skills
+<h1 align= "left"> Netflix </h1>
+
+<br>
 
 
- - 💻 Swift, UIKit
- - 📚OOP
- - 🛠 MVC, MVP
- - 📚 Data structure and Algorithms
- - ⚙Core Data, SQLite, User Defauts
- - 👨‍💻SOLID Principles
- - ⚙️RESTful API, Postman
- - ⚙️Git, GitHub
- - 👨‍💻Firebase
- - 📚Knowledge in Design Patterns
 
-## Acknowledgements
+Netflix is a subscription-based streaming service that allows our members to watch TV shows and movies without commercials on an internet-connected device. You can also download TV shows and movies to your iOS devices.
 
- - [Awesome Readme Templates](https://awesomeopensource.com/project/elangosundar/awesome-README-templates)
- - [Awesome README](https://github.com/matiassingers/awesome-readme)
- - [How to write a Good readme](https://bulldogjob.com/news/449-how-to-write-a-good-readme-for-your-github-project)
+<br>
+<p align="center">
+<img src="https://github.com/mosliem/Upenny/blob/main/Screenshots/banner%403x.png" />
+</p>
 
 
-## 🔗 Links
-[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://katherineoelsner.com/)
-[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/)
-[![twitter](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/)
+## Built with
 
+- Swift 5.3 and UIKit 
+
+## Third Party
+- [Alamofire](https://github.com/Alamofire/Alamofire) 
+- [sd Web Iamge](https://github.com/SDWebImage/SDWebImage)
+- [Lottie-ios](https://github.com/airbnb/lottie-ios)
+
+
+## Getting Started
+### Prerequisites
+- Xcode 11.3 or higher
+- iOS 13 or higher
+- install the latest version of cocoapods 
+
+       sudo gem install cocoapods
+     
+- <h3> Don't forget Pods install </h3>
+
+        pod install
+        
+        
+## Usage
+This a small demo video about the main features
+
+https://user-images.githubusercontent.com/52772674/187349767-f067e2ce-5dfb-4daa-9750-980fea66b0e0.mp4
+
+
+
+
+
+## App Structrue
+
+- Upenny
+   - Models 
+     - Trending Movies
+     - Popular
+     - Trending TV
+     - Upcoming Movies
+     - Top rated
+     
+   - Resources
+     - Extensions
+     - info.plist
+     
+   - Scenes  
+     - Splash Screen 
+     - Tab Bar
+     - Home
+     - Upcoming
+     - Search
+     - Downloads
+ 
+    
+   - Storage
+     - Core Data
+
+  
+  
+## Contributing
+
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+  
+<h3 align="left">Connect with me</h3>
+
+ -  Ahmed Yasein - ahmed.yasein.work9@gmail.com
+ -  [Linkedin](https://www.linkedin.com/in/ahmedyasein/)
