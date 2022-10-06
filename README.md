@@ -11,7 +11,6 @@ Netflix is a subscription-based streaming service that allows our members to wat
 
 <br>
 <p align="center">
-<img src="https://github.com/mosliem/Upenny/blob/main/Screenshots/banner%403x.png" />
 </p>
 
 
