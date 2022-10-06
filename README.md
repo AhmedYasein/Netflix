@@ -41,7 +41,6 @@ Netflix is a subscription-based streaming service that allows our members to wat
 ## Usage
 This a small demo video about the main features
 
-https://user-images.githubusercontent.com/52772674/187349767-f067e2ce-5dfb-4daa-9750-980fea66b0e0.mp4
 
 
 
