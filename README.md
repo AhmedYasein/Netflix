@@ -77,7 +77,7 @@ This a small demo video about the main features
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
   
-<h3 align="left">Connect with me</h3>
+<h3 align="left">Contact with me</h3>
 
  -  Ahmed Yasein - ahmed.yasein.work@gmail.com
  -  [Linkedin](https://www.linkedin.com/in/ahmedyasein/)
