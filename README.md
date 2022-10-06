@@ -80,5 +80,5 @@ Contributions are what make the open source community such an amazing place to l
   
 <h3 align="left">Connect with me</h3>
 
- -  Ahmed Yasein - ahmed.yasein.work9@gmail.com
+ -  Ahmed Yasein - ahmed.yasein.work@gmail.com
  -  [Linkedin](https://www.linkedin.com/in/ahmedyasein/)
