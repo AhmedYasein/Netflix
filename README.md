@@ -47,7 +47,7 @@ This a small demo video about the main features
 
 ## App Structrue
 
-- Upenny
+- Netflix
    - Models 
      - Trending Movies
      - Popular
