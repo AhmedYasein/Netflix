@@ -59,7 +59,7 @@ class HomeVC: UIViewController {
             } else if let movies = movies{
                 let randomMovie = movies.results?.randomElement()
                 self.randomTrendingMovie = randomMovie
-                self.heroHeader?.configure(model: randomMovie!)
+               // self.heroHeader?.configure(model: randomMovie!)
             }
         }
     }
@@ -107,6 +107,7 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
         cell.delegate = self
         switch indexPath.section {
         case sections.trendingMovies.rawValue:
+            self.view.showLoading()
             if Connectivity.isConnectedToInternet() {
             
             APICaller.shared().getTrendingMovies { (error, moviesResponse)  in
@@ -124,11 +125,12 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
                                
                            }
                         cell.configure(titles: postersArr)
+                        self.view.hideLoading()
                        }
 
                    }
             } else {
-                AlertManager.shared().showAlertWithCancel(alertTitle: "Ahmed", message: "sadsdasd", actionTitle: "SAdsadsad", completion: self.view.showLoading)
+               // AlertManager.shared().showAlertWithCancel(alertTitle: "Network Connection", message: "Please make sure internet connection", actionTitle: "Ok", completion: self.view.showLoading)
             }
             
         case sections.trendingTv.rawValue:
@@ -194,6 +196,7 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
         }
         return cell
     }
+
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         guard let header = view as? UITableViewHeaderFooterView else {
             return
@@ -213,6 +216,7 @@ extension HomeVC: CollectionViewTableViewCellDelegate {
               let moviePreviewVC = MoviePreviewVC()
                   moviePreviewVC.configure(movie: viewModel)
             self?.navigationController?.pushViewController(moviePreviewVC, animated: true)
+            
         }
       
     }

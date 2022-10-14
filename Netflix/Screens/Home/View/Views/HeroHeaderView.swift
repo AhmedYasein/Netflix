@@ -14,7 +14,8 @@ class HeroHeaderView: UIView {
        let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-        //imageView.image = UIImage(named: "Daredevil")
+        
+        imageView.image = UIImage(named: "Dahmer 2")
         return imageView
     }()
     

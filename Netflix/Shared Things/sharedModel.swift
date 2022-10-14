@@ -24,7 +24,7 @@ struct Title: Codable {
     let adult: Bool?
     let backdropPath: String?
     let genreIds: [Int]?
-    let id: Int?
+    let id: Int
     let originalLanguage: String?
     let originalTitle: String?
     let originalName: String?
@@ -33,7 +33,7 @@ struct Title: Codable {
     let posterPath: String?
     let releaseDate: String?
     let title: String?
-    let votAverage: Double
+    let votAverage: Double?
     let video: Bool?
     let voteCount: Int?
 

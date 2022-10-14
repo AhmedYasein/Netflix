@@ -11,10 +11,10 @@ import UIKit
 class UpComingVC: UIViewController {
     var titles: [Title] = [Title]()
     
-    var upcomingPresenter: UpcomingPresenter!
+   // var upcomingPresenter: UpcomingPresenter!
 
     
-    let upcomingTableView: UITableView = {
+  private  let upcomingTableView: UITableView = {
        let tableView = UITableView()
         tableView.register(UpcomingTableViewCell.self, forCellReuseIdentifier: UpcomingTableViewCell.identifier)
         return tableView
@@ -22,7 +22,7 @@ class UpComingVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        upcomingPresenter = UpcomingPresenter(view: self)
+      //  upcomingPresenter = UpcomingPresenter(view: self)
         title = "Upcoming"
         navigationController?.navigationBar.prefersLargeTitles = true
         upcomingTableView.delegate = self

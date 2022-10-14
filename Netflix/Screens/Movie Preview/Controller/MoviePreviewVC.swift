@@ -10,6 +10,10 @@ import UIKit
 import WebKit
 class MoviePreviewVC: UIViewController {
     
+    
+
+
+
     private let titleLabel: UILabel = {
        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -24,6 +28,8 @@ class MoviePreviewVC: UIViewController {
         button.backgroundColor = .red
         button.setTitle("Download", for: .normal)
         button.setTitleColor(.white, for: .normal)
+        button.layer.cornerRadius = 8
+        button.layer.masksToBounds = true
         return button
     }()
     private let overviewLabel: UILabel = {
@@ -61,7 +67,8 @@ class MoviePreviewVC: UIViewController {
         
         let titleLabelConstraints = [
             titleLabel.topAnchor.constraint(equalTo: webView.bottomAnchor, constant: 20),
-            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20)
+            titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         
         ]
         let overviewLabelConstraints = [
@@ -86,15 +93,19 @@ class MoviePreviewVC: UIViewController {
     }
     
     func configure(movie: MoviePreviewModel){
+    self.view.showLoading()
         
         self.titleLabel.text = movie.title
         self.overviewLabel.text
             = movie.overview
-        
         guard let url = URL(string: "https://www.youtube.com/embed/\(movie.youtubeVideo.id.videoId)") else {
             return
         }
         webView.load(URLRequest(url: url))
+        self.view.hideLoading()
+
     }
+
+    
 
 }

@@ -17,6 +17,9 @@
 		730F98A428DD0CC2001D8A1B /* YoutubeApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730F98A328DD0CC2001D8A1B /* YoutubeApiResponse.swift */; };
 		730F98A828DD1664001D8A1B /* MoviePreviewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730F98A728DD1664001D8A1B /* MoviePreviewModel.swift */; };
 		73183ACE28EC691B00808FB8 /* MoviePreviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73183ACD28EC691B00808FB8 /* MoviePreviewVC.swift */; };
+		73231B4D28F9C8B600DFDEB4 /* NetflixModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 73231B4B28F9C8B600DFDEB4 /* NetflixModel.xcdatamodeld */; };
+		73231B5028F9CB0200DFDEB4 /* DataPersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73231B4F28F9CB0200DFDEB4 /* DataPersistenceManager.swift */; };
+		73231B5228F9D48000DFDEB4 /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73231B5128F9D48000DFDEB4 /* MovieModel.swift */; };
 		732B272328B075E400A6876C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732B272228B075E400A6876C /* AppDelegate.swift */; };
 		732B272528B075E400A6876C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732B272428B075E400A6876C /* SceneDelegate.swift */; };
 		732B272728B075E400A6876C /* MainTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 732B272628B075E400A6876C /* MainTabBarVC.swift */; };
@@ -56,6 +59,9 @@
 		730F98A328DD0CC2001D8A1B /* YoutubeApiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeApiResponse.swift; sourceTree = "<group>"; };
 		730F98A728DD1664001D8A1B /* MoviePreviewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePreviewModel.swift; sourceTree = "<group>"; };
 		73183ACD28EC691B00808FB8 /* MoviePreviewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviePreviewVC.swift; sourceTree = "<group>"; };
+		73231B4C28F9C8B600DFDEB4 /* NetflixModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NetflixModel.xcdatamodel; sourceTree = "<group>"; };
+		73231B4F28F9CB0200DFDEB4 /* DataPersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistenceManager.swift; sourceTree = "<group>"; };
+		73231B5128F9D48000DFDEB4 /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
 		732B271F28B075E400A6876C /* Netflix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Netflix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		732B272228B075E400A6876C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		732B272428B075E400A6876C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -206,6 +212,14 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
+		73231B4E28F9CAF800DFDEB4 /* DataPersistenceManager */ = {
+			isa = PBXGroup;
+			children = (
+				73231B4F28F9CB0200DFDEB4 /* DataPersistenceManager.swift */,
+			);
+			path = DataPersistenceManager;
+			sourceTree = "<group>";
+		};
 		732B271628B075E400A6876C = {
 			isa = PBXGroup;
 			children = (
@@ -236,17 +250,10 @@
 				732B274328B08DE900A6876C /* Managers */,
 				732B274228B08DBE00A6876C /* Resources */,
 				732B274128B08D8B00A6876C /* Shared Things */,
-				732B273628B0762100A6876C /* Controllers */,
 				732B272028B075E400A6876C /* Products */,
+				73231B4B28F9C8B600DFDEB4 /* NetflixModel.xcdatamodeld */,
 			);
 			path = Netflix;
-			sourceTree = "<group>";
-		};
-		732B273628B0762100A6876C /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controllers;
 			sourceTree = "<group>";
 		};
 		732B274128B08D8B00A6876C /* Shared Things */ = {
@@ -254,6 +261,7 @@
 			children = (
 				7306E7AA28C3EF2D00B7D3F8 /* sharedModel.swift */,
 				732B272628B075E400A6876C /* MainTabBarVC.swift */,
+				73231B5128F9D48000DFDEB4 /* MovieModel.swift */,
 			);
 			path = "Shared Things";
 			sourceTree = "<group>";
@@ -270,6 +278,7 @@
 		732B274328B08DE900A6876C /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				73231B4E28F9CAF800DFDEB4 /* DataPersistenceManager */,
 				73183AD428EC6A2F00808FB8 /* Networking */,
 			);
 			path = Managers;
@@ -532,6 +541,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73231B5228F9D48000DFDEB4 /* MovieModel.swift in Sources */,
+				73231B4D28F9C8B600DFDEB4 /* NetflixModel.xcdatamodeld in Sources */,
 				732B273C28B0766800A6876C /* SearchVC.swift in Sources */,
 				738D51E528B1BDDC00656261 /* TrendingMovies.swift in Sources */,
 				730F98A828DD1664001D8A1B /* MoviePreviewModel.swift in Sources */,
@@ -548,6 +559,7 @@
 				735C013228C2A269004459C4 /* PopularMovies.swift in Sources */,
 				7335708428CE5B43000C02D5 /* UpcomingTableViewCell.swift in Sources */,
 				732B274628B08E7400A6876C /* CollectionViewTableViewCell.swift in Sources */,
+				73231B5028F9CB0200DFDEB4 /* DataPersistenceManager.swift in Sources */,
 				7335708628CE60AD000C02D5 /* UpcomingPresenter.swift in Sources */,
 				73430BCE28E6304D0029B9F2 /* UIView + Loader.swift in Sources */,
 				732B273A28B0765400A6876C /* UpComingVC.swift in Sources */,
@@ -742,6 +754,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		73231B4B28F9C8B600DFDEB4 /* NetflixModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				73231B4C28F9C8B600DFDEB4 /* NetflixModel.xcdatamodel */,
+			);
+			currentVersion = 73231B4C28F9C8B600DFDEB4 /* NetflixModel.xcdatamodel */;
+			path = NetflixModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 732B271728B075E400A6876C /* Project object */;
 }

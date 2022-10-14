@@ -55,6 +55,20 @@ class CollectionViewTableViewCell: UITableViewCell {
             self?.collectionView.reloadData()
         }
     }
+     private func downloadMovieAt(indexPath: IndexPath) {
+        
+    
+        DataPersistenceManager.shared.downloadTitleWith(model: titles[indexPath.row]) { result in
+            switch result {
+            case .success():
+                NotificationCenter.default.post(name: NSNotification.Name("downloaded"), object: nil)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+        
+
+    }
     
     
     
@@ -106,7 +120,7 @@ extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionVie
                identifier: nil,
                previewProvider: nil) {[weak self] _ in
                 let downloadAction = UIAction(title: "Download", image: nil, identifier: nil, discoverabilityTitle: nil, state: .off) { (_) in
-                    print("Downloaded")
+                    self?.downloadMovieAt(indexPath: indexPath)
                 }
                 return UIMenu(title: "", image: nil, identifier: nil, options: .displayInline, children: [downloadAction])
                }

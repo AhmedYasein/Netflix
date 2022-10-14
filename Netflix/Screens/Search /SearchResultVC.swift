@@ -49,7 +49,6 @@ extension SearchResultVC: UICollectionViewDelegate, UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TitleCollectionViewCell.identifier, for: indexPath) as? TitleCollectionViewCell else {
             return UICollectionViewCell()
         }
-        
         cell.configureCell(poster: movies[indexPath.row].posterPath  ?? "")
         return cell
     }

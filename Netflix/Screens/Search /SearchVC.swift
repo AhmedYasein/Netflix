@@ -52,6 +52,7 @@ class SearchVC: UIViewController {
     }
     
     func fetchDiscoverMovies(){
+        self.view.showLoading()
         APICaller.shared().getDiscoverMovies { [weak self] ( error, discoverMovies) in
             if let error = error {
                 print(error.localizedDescription)
@@ -62,6 +63,7 @@ class SearchVC: UIViewController {
                     }
                 
             }
+            self?.view.hideLoading()
         }
     }
 
@@ -94,12 +96,14 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource {
                 return
             }
             APICaller.shared().getMoviesFromYoutube(quary: titleName) {[weak self] (error, videoElement) in
+                self?.view.showLoading()
                 if let error = error {
                     print(error.localizedDescription)
                 } else if let videoElement = videoElement {
                     DispatchQueue.main.async {
                         let moviePreviewVC = MoviePreviewVC()
                         moviePreviewVC.configure(movie: MoviePreviewModel(title: titleName, youtubeVideo: videoElement, overview: movie.overview ?? ""))
+                        self?.view.hideLoading()
                         self?.navigationController?.pushViewController(moviePreviewVC, animated: true   )
                     }
                     

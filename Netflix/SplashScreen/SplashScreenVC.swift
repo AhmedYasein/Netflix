@@ -27,7 +27,7 @@ class SplashScreenVC: UIViewController {
          }
         Timer.scheduledTimer(withTimeInterval: 5.0, repeats: false) { (_) in
         
-             self.navigationController?.pushViewController(MainTabBarVC(), animated: true)
+             self.navigationController?.pushViewController(MainTabBarVC(), animated: false)
          }
         
     }
