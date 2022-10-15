@@ -13,9 +13,10 @@ Netflix is a subscription-based streaming service that allows our members to wat
 <p align="center">
 </p>
 
+https://user-images.githubusercontent.com/60042389/195985381-556178b4-d89b-4637-8091-54e0d11d3c7b.mp4
+
 
 ## Built with
-
 - Swift 5.3 and UIKit 
 
 ## Third Party
